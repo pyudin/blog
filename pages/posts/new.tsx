@@ -39,8 +39,8 @@ function newPost() {
         <div>New post:</div>
         <div>
           <textarea
-            rows="1"
-            cols="90"
+            rows={1}
+            cols={90}
             id="newTitle"
             name="title"
             placeholder="Enter title..."
@@ -50,8 +50,8 @@ function newPost() {
         </div>
         <div>
           <textarea
-            rows="20"
-            cols="90"
+            rows={20}
+            cols={90}
             id="newBody"
             name="body"
             placeholder="Enter post..."
