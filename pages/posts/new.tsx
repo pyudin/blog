@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addPost } from "../../store/actions";
+import { addPost, createPost } from "../../store/actions";
 import { v4 as uuid } from "uuid/";
 import { Layout } from "../../components/Layout";
 import Button from "../../components/Button";
@@ -28,7 +28,7 @@ function newPost() {
   };
 
   const submitHandler = () => {
-    dispatch(addPost({ id: uuid(), title, body }));
+    dispatch(createPost({ title, body }));
     setTitle("");
     setBody("");
   };

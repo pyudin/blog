@@ -8,14 +8,25 @@ export const addPost = (post: Post) => {
   };
 };
 
+export const createPost = (post: Post) => (dispatch) => {
+  axios
+    .post("https://simple-blog-api.crew.red/posts", JSON.stringify(post), {
+      headers: { "Content-Type": "application/json" },
+    })
+    .then((res) => res.data)
+    .then((data) => console.log(data))
+    .catch((err) => console.log("Create post error: ", err));
+};
+
 export const fetchPosts = () => (dispatch) => {
   axios
-    .get("http://jsonplaceholder.typicode.com/posts")
+    .get("https://simple-blog-api.crew.red/posts")
     .then((res) => res.data)
     .then((posts) =>
       dispatch({
         type: "FETCH_POSTS",
         payload: posts,
       })
-    );
+    )
+    .catch((err) => console.log("Fetching error: ", err));
 };

@@ -9,11 +9,11 @@ import { fetchPosts } from "../store/actions";
 export default function Home() {
   const posts = useSelector((state) => state.posts);
   const postslist = new Array(...posts.data);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!posts.isLoaded) dispatch(fetchPosts());
+    // if (!posts.isLoaded)
+    dispatch(fetchPosts());
   }, []);
 
   return (
@@ -24,9 +24,12 @@ export default function Home() {
       </Head>
 
       <main className="main__page">
-        {postslist.reverse().map((post: Post) => (
-          <PostComponent post={post} key={post.id} />
-        ))}
+        {postslist
+          .reverse()
+          .filter((el) => el.title)
+          .map((post: Post) => (
+            <PostComponent post={post} key={post.id} />
+          ))}
       </main>
     </Layout>
   );
