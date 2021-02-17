@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addPost } from "../../store/actions";
 import { v4 as uuid } from "uuid/";
@@ -10,6 +10,15 @@ function newPost() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
+  useEffect(() => {
+    const element = document.querySelector("#btn");
+    if (!title || !body) {
+      element.setAttribute("disabled", "");
+    } else {
+      element.removeAttribute("disabled");
+    }
+  }, [title, body]);
+
   const titleHandler = (e) => {
     setTitle(e.target.value);
   };
@@ -19,12 +28,7 @@ function newPost() {
   };
 
   const submitHandler = () => {
-    if (title && body) {
-      dispatch(addPost({ id: uuid(), title, body }));
-    } else {
-      alert("Enter the post");
-      return;
-    }
+    dispatch(addPost({ id: uuid(), title, body }));
     setTitle("");
     setBody("");
   };
@@ -38,6 +42,8 @@ function newPost() {
             rows="1"
             cols="90"
             id="newTitle"
+            name="title"
+            placeholder="Enter title..."
             onChange={titleHandler}
             value={title}
           ></textarea>
@@ -47,11 +53,15 @@ function newPost() {
             rows="20"
             cols="90"
             id="newBody"
+            name="body"
+            placeholder="Enter post..."
             onChange={bodyHandler}
             value={body}
           ></textarea>
         </div>
-        <Button onClick={submitHandler}>Add post</Button>
+        <Button id="btn" onClick={submitHandler}>
+          Add post
+        </Button>
       </div>
     </Layout>
   );

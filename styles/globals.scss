@@ -1,3 +1,6 @@
+$mainColor: rgb(218, 240, 240);
+$secondColor: rgb(151, 196, 197);
+
 html,
 body {
   padding: 0;
@@ -26,21 +29,34 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(218, 240, 240);
+  background-color: $mainColor;
+  .main__page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .post {
   border: 1px solid rgb(187, 187, 187);
-  border-radius: 6px;
-  height: 210px;
-  width: 800px;
-  padding: 10px;
-  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 12px;
+  min-height: 210px;
+  width: 70%;
+  padding: 15px;
+  margin: 20px 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
 
+  .post__body {
+    flex: 1 1 auto;
+  }
+  .post__btn {
+    flex: 0 0 30px;
+  }
+}
 .post__title {
   font-size: 120%;
   font-weight: 700;
@@ -48,11 +64,9 @@ a {
   flex: 0 0 30px;
 }
 
-.post__body {
-  flex: 1 1 auto;
-}
-.post__btn {
-  flex: 0 0 30px;
+.post__main {
+  margin: 10px 30px;
+  padding: 30px;
 }
 
 .nav__bar {
@@ -60,22 +74,19 @@ a {
   flex-direction: column;
   align-items: center;
   flex: 0 0 100px;
-  /* border: 1px solid black; */
-  background-color: rgb(151, 196, 197);
-}
+  background-color: $secondColor;
+  .nav__title {
+    font-size: 140%;
+    font-weight: 700;
+    margin: 30px;
+  }
 
-.nav__title {
-  font-size: 140%;
-  font-weight: 700;
-  margin: 30px;
-}
-
-.nav__links {
-  display: flex;
-}
-
-.nav__link {
-  margin: 20px;
+  .nav__links {
+    display: flex;
+    .nav__link {
+      margin: 20px;
+    }
+  }
 }
 
 .active {
@@ -90,7 +101,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(151, 196, 197);
+  background-color: $secondColor;
 }
 
 .footer img {
@@ -109,10 +120,10 @@ a {
 
 #newTitle {
   padding: 10px;
-  background-color: rgb(218, 240, 240);
+  background-color: $mainColor;
 }
 
 #newBody {
   padding: 10px;
-  background-color: rgb(218, 240, 240);
+  background-color: $mainColor;
 }

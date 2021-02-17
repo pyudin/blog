@@ -6,17 +6,21 @@ import { Post } from "../../interfaces/blog";
 
 function posts() {
   const router = useRouter();
-  const posts = useSelector((state) => state.posts);
+  const posts = useSelector((state) => state.posts.data);
   const [post, setPost] = useState({ body: "", title: "" });
 
   useEffect(() => {
-    setPost(posts.find((post: Post) => post.id === router.query.postId));
+    setPost(posts.find((el: Post) => el.id == router.query.postId));
   }, []);
 
   return (
     <Layout>
-      <div className="post__title">{post.title}</div>
-      <div>{post.body}</div>
+      <div className="post__title">
+        {typeof post !== "undefined" ? post.title : ""}
+      </div>
+      <div className="post__main">
+        {typeof post !== "undefined" ? post.body : ""}
+      </div>
     </Layout>
   );
 }
