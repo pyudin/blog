@@ -69,6 +69,15 @@ a {
   padding: 30px;
 }
 
+.post__btns {
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+  .post__del {
+    width: 20%;
+  }
+}
+
 .nav__bar {
   display: flex;
   flex-direction: column;
@@ -128,4 +137,10 @@ a {
   padding: 10px;
   border-radius: 5px;
   background-color: $mainColor;
+}
+
+.delsign {
+  color: red;
+  font-size: 120%;
+  font-weight: 600;
 }

@@ -7,7 +7,7 @@ function PostComponent({ post }) {
     <div className="post">
       <div className="post__title">{post.title}</div>
       <div className="post__body">
-        {post.body.match(/[\w\W]{1,300}/)}
+        {post.body ? post.body.match(/[\w\W]{1,300}/) : ""}
         {post.body.length > 300 ? "..." : ""}
       </div>
 

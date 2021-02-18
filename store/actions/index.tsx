@@ -14,8 +14,14 @@ export const createPost = (post: Post) => (dispatch) => {
       headers: { "Content-Type": "application/json" },
     })
     .then((res) => res.data)
-    .then((data) => console.log(data))
     .catch((err) => console.log("Create post error: ", err));
+};
+
+export const deletePost = (id) => (dispatch) => {
+  axios
+    .delete(`https://simple-blog-api.crew.red/posts/${id}`)
+    .then((res) => res.data)
+    .catch((err) => console.log("Delete post error: ", err));
 };
 
 export const fetchPosts = () => (dispatch) => {

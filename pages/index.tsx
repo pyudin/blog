@@ -26,7 +26,7 @@ export default function Home() {
       <main className="main__page">
         {postslist
           .reverse()
-          .filter((el) => el.title)
+          .filter((el) => el.title && el.body)
           .map((post: Post) => (
             <PostComponent post={post} key={post.id} />
           ))}
